@@ -47,6 +47,14 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
             foreignKey: 'productItemId',
             as: 'appMainPageContent'
           })
+          AppProduct.belongsTo(models.AppContent, {
+            foreignKey: 'contentItemId',
+            as: 'appMainPageContent'
+          })
+          AppProduct.belongsTo(models.AppProduct, {
+            foreignKey: 'productItemId',
+            as: 'appMainPageProducts'
+          })
         }
       }
     })

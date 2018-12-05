@@ -25,6 +25,16 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
     order: DataTypes.INTEGER
   }, {
       classMethods: {
+        associate: function(models) {
+          AppMainPageContent.hasMany(models.AppContent, {
+            foreignKey: 'contentItemId',
+            as: 'appMainPageContents'
+          })
+          AppMainPageContent.hasMany(models.AppProduct, {
+            foreignKey: 'productItemId',
+            as: 'appMainPageProducts'
+          })
+        }
       }
     })
   return AppMainPageContent

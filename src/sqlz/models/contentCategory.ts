@@ -27,6 +27,14 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
             foreignKey: 'categoryId',
             as: 'appCategories'
           })
+          ContentCategoryModel.belongsTo(models.AppContent, {
+            foreignKey: 'contentItemId',
+            as: 'contentCategories'
+          })
+          ContentCategoryModel.belongsTo(models.AppProduct, {
+            foreignKey: 'productItemId',
+            as: 'productCategories'
+          })
         }
       }
     })

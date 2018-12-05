@@ -23,6 +23,12 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
     order: DataTypes.INTEGER
   }, {
       classMethods: {
+        associate: function(models) {
+          AppContentModel.belongsTo(models.ContentImage, {
+            foreignKey: 'contentItemId',
+            as: 'appContentModel'
+          })
+        }
       }
     })
   return AppContentModel

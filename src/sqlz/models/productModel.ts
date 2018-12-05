@@ -23,6 +23,12 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
     order: DataTypes.INTEGER
   }, {
       classMethods: {
+        associate: function(models) {
+          AppProductModel.belongsTo(models.AppProduct, {
+            foreignKey: 'productItemId',
+            as: 'appProductModel'
+          })
+        }
       }
     })
   return AppProductModel

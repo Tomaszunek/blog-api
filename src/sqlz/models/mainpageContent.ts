@@ -3,6 +3,7 @@ import * as Sequelize from 'sequelize'
 export interface AppMainPageContentAttributes {
   id?: number
   contentItemId: number,
+  productItemId: number,
   idSlider: boolean,
   order: number
 }
@@ -10,6 +11,7 @@ export interface AppMainPageContentAttributes {
 export interface AppMainPageContentInstance extends Sequelize.Instance<AppMainPageContentAttributes> {
   id: number
   contentItemId: number,
+  productItemId: number,
   createdAt: Date
   updatedAt: Date
 

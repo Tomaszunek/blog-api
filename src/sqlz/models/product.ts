@@ -28,7 +28,6 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
     productType: DataTypes.STRING,
     image: DataTypes.STRING,
     body: DataTypes.STRING,
-    type: DataTypes.STRING
   }, {
       classMethods: {
         associate: function(models) { }

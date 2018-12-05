@@ -1,22 +1,17 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('AppMainPageContent', {
+    queryInterface.createTable('AppContentCategories', {
       id: {
         allowNull: false,
         type: Sequelize.UUID,
         defaultValue: Sequelize.UUIDV1,
         primaryKey: true
       },
-      isSlider: {
+      isVisible: {
         allowNull: false,
         type: Sequelize.BOOLEAN,
         unique: true
-      },
-      order: {
-        allowNull: false,
-        type: Sequelize.INTEGER,
-        unique: true
-      },      
+      },          
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -34,8 +29,28 @@ module.exports = {
           key: 'id',
           as: 'contentItemId',
         }
-      }
+      },
+      productItemId: {
+        type: Sequelize.UUID,
+        allowNull: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'AppProduct',
+          key: 'id',
+          as: 'productItemId',
+        }
+      },
+      categoryId: {
+        type: Sequelize.UUID,
+        allowNull: true,
+        onDelete: 'CASCADE',
+        references: {
+          model: 'AppCategories',
+          key: 'id',
+          as: 'categoryId',
+        }
+      }        
     })
   ,
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('AppMainPageContent')
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('AppContentCategories')
 }

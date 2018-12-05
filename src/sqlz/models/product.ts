@@ -1,22 +1,20 @@
 import * as Sequelize from 'sequelize'
 
-export interface AppContentAttributes {
+export interface AppProductAttributes {
   id?: string
-  type: ContentType,
-  articleType: ArticleType,
+  productType: ProductType,
   name: string,
   slug: string
   image: string,
   body: string
 }
 
-export interface AppContentInstance extends Sequelize.Instance<AppContentAttributes> {
+export interface AppProducttInstance extends Sequelize.Instance<AppProductAttributes> {
   id: string
   createdAt: Date
   updatedAt: Date
 
-  type: ContentType,
-  articleType: ArticleType,
+  productType: ProductType,
   name: string,
   slug: string
   image: string,
@@ -24,10 +22,10 @@ export interface AppContentInstance extends Sequelize.Instance<AppContentAttribu
 }
 
 export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
-  const AppContent = sequelize.define('AppContent', {
+  const AppProduct = sequelize.define('AppProduct', {
     name: DataTypes.STRING,
     slug: DataTypes.STRING,
-    articleType: DataTypes.STRING,
+    productType: DataTypes.STRING,
     image: DataTypes.STRING,
     body: DataTypes.STRING,
     type: DataTypes.STRING
@@ -36,13 +34,10 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
         associate: function(models) { }
       }
     })
-  return AppContent
+  return AppProduct
 }
 
-export enum ContentType {
-  'article', 'project', 'ability'
-}
 
-export enum ArticleType {
+export enum ProductType {
   'news', 'technology', 'motivation', 'psychology'
 }

@@ -25,17 +25,17 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
   }, {
       classMethods: {
         associate: function(models) {
-          AppContentCategory.hasMany(models.CategoryModel, {
-            foreignKey: 'categoryId',
-            as: 'appCategories'
-          })
           AppContentCategory.belongsTo(models.AppContent, {
             foreignKey: 'contentItemId',
-            as: 'contentCategories'
+            onDelete: 'CASCADE',
           })
           AppContentCategory.belongsTo(models.AppProduct, {
             foreignKey: 'productItemId',
-            as: 'productCategories'
+            onDelete: 'CASCADE',
+          })
+          AppContentCategory.belongsTo(models.AppCategory, {
+            foreignKey: 'categoryId',
+            onDelete: 'CASCADE',
           })
         }
       }

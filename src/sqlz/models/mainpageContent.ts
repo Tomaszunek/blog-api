@@ -26,13 +26,13 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
   }, {
       classMethods: {
         associate: function(models) {
-          AppMainPageContent.hasMany(models.AppContent, {
+          AppMainPageContent.belongsTo(models.AppContent, {
             foreignKey: 'contentItemId',
-            as: 'appMainPageContents'
+            onDelete: 'CASCADE'
           })
-          AppMainPageContent.hasMany(models.AppProduct, {
+          AppMainPageContent.belongsTo(models.AppProduct, {
             foreignKey: 'productItemId',
-            as: 'appMainPageProducts'
+            onDelete: 'CASCADE'
           })
         }
       }

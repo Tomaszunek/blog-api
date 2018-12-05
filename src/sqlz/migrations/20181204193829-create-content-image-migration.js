@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('ContentImages', {
+    queryInterface.createTable('appcontentimages', {
       id: {
         allowNull: false,
         type: Sequelize.UUID,
@@ -30,12 +30,12 @@ module.exports = {
         allowNull: false,
         onDelete: 'CASCADE',
         references: {
-          model: 'AppContent',
+          model: 'appcontents',
           key: 'id',
           as: 'contentItemId',
         }
       }  
     })
   ,
-  down: (queryInterface, Sequelize) => queryInterface.dropTable('ContentImages')
+  down: (queryInterface, Sequelize) => queryInterface.dropTable('appcontentimages')
 }

@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('AppMainPageContent', {
+    queryInterface.createTable('appmainpagecontents', {
       id: {
         allowNull: false,
         type: Sequelize.UUID,
@@ -9,8 +9,7 @@ module.exports = {
       },
       isSlider: {
         allowNull: false,
-        type: Sequelize.BOOLEAN,
-        unique: true
+        type: Sequelize.BOOLEAN
       },
       order: {
         allowNull: false,
@@ -30,7 +29,7 @@ module.exports = {
         allowNull: true,
         onDelete: 'CASCADE',
         references: {
-          model: 'AppContent',
+          model: 'appcontents',
           key: 'id',
           as: 'contentItemId',
         }
@@ -40,7 +39,7 @@ module.exports = {
         allowNull: true,
         onDelete: 'CASCADE',
         references: {
-          model: 'AppProduct',
+          model: 'appproducts',
           key: 'id',
           as: 'productItemId',
         }

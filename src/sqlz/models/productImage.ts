@@ -26,7 +26,7 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
         associate: function(models) {
           AppProductImage.belongsTo(models.AppProduct, {
             foreignKey: 'productItemId',
-            as: 'appProductImage'
+            onDelete: 'CASCADE',
           })
         }
       }

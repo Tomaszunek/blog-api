@@ -31,21 +31,17 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
   }, {
       classMethods: {
         associate: function(models) {
+          AppProduct.hasMany(models.AppContentCategory, {
+            foreignKey: 'productItemId'
+          })
           AppProduct.hasMany(models.AppProductImage, {
-            foreignKey: 'productItemId',
-            as: 'appProductImage'
+            foreignKey: 'productItemId'
           })
           AppProduct.hasMany(models.AppProductModel, {
-            foreignKey: 'productItemId',
-            as: 'appProductModels'
+            foreignKey: 'productItemId'
           })
-          AppProduct.belongsTo(models.AppContentCategory, {
-            foreignKey: 'productItemId',
-            as: 'appProductCategories'
-          })
-          AppProduct.belongsTo(models.AppMainPageContent, {
-            foreignKey: 'productItemId',
-            as: 'appMainPageContent'
+          AppProduct.hasMany(models.AppMainPageContent, {
+            foreignKey: 'productItemId'
           })
         }
       }

@@ -8,7 +8,7 @@ const config = require('../config/config.json')
 import { LanguageInstance, LanguageAttributes } from './language'
 import { AppUserInstance, AppUserAttributes } from './appuser'
 import { AppContentInstance, AppContentAttributes } from './content'
-import { CategoryModelInstance, CategoryModelAttributes } from './category'
+import { AppCategoryInstance, AppCategoryAttributes } from './category'
 import { ContentCategoryModelInstance, ContentCategoryModelAttributes } from './contentCategory'
 import { AppContentImageInstance, AppContentImageAttributes } from './contentImage'
 import { AppContentModelInstance, AppContentModelAttributes } from './contentModel'
@@ -20,15 +20,15 @@ import { AppProductModelInstance, AppProductModelAttributes } from './productMod
 interface DbConnection {
   Language: Sequelize.Model<LanguageInstance, LanguageAttributes>,
   AppUser: Sequelize.Model<AppUserInstance, AppUserAttributes>,
-  Content: Sequelize.Model<AppContentInstance, AppContentAttributes>,
-  Category: Sequelize.Model<CategoryModelInstance, CategoryModelAttributes>,
-  ContentCategory: Sequelize.Model<ContentCategoryModelInstance, ContentCategoryModelAttributes>,
-  ContentImage: Sequelize.Model<AppContentImageInstance, AppContentImageAttributes>,
-  ContentModel: Sequelize.Model<AppContentModelInstance, AppContentModelAttributes>,
-  MainPageContent: Sequelize.Model<AppMainPageContentInstance, AppMainPageContentAttributes>,
-  Product: Sequelize.Model<AppProducttInstance, AppProductAttributes>,
-  ProductImage: Sequelize.Model<AppProductImageInstance, AppProductImageAttributes>,
-  ProductModel: Sequelize.Model<AppProductModelInstance, AppProductModelAttributes>
+  AppContent: Sequelize.Model<AppContentInstance, AppContentAttributes>,
+  AppCategory: Sequelize.Model<AppCategoryInstance, AppCategoryAttributes>,
+  AppContentCategory: Sequelize.Model<ContentCategoryModelInstance, ContentCategoryModelAttributes>,
+  AppContentImage: Sequelize.Model<AppContentImageInstance, AppContentImageAttributes>,
+  AppContentModel: Sequelize.Model<AppContentModelInstance, AppContentModelAttributes>,
+  AppMainPageContent: Sequelize.Model<AppMainPageContentInstance, AppMainPageContentAttributes>,
+  AppProduct: Sequelize.Model<AppProducttInstance, AppProductAttributes>,
+  AppProductImage: Sequelize.Model<AppProductImageInstance, AppProductImageAttributes>,
+  AppProductModel: Sequelize.Model<AppProductModelInstance, AppProductModelAttributes>
 }
 let db = {}
 

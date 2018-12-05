@@ -1,11 +1,11 @@
 import db from '../sqlz/models/_index'
 
 export function findAll(): Promise<any> {
-  return db.MainPageContent
+  return db.AppMainPageContent
     .findAll({
       include: [
-        { model: db.Product },
-        { model: db.Content }
+        { model: db.AppContent, include: [{ model: db.AppContentCategory, include: [{ model: db.AppCategory }] }] },
+        { model: db.AppProduct, include: [{ model: db.AppContentCategory, include: [{ model: db.AppCategory }] }] }
       ]
     })
 }

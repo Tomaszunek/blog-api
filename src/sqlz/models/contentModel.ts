@@ -26,7 +26,7 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
         associate: function(models) {
           AppContentModel.belongsTo(models.AppContent, {
             foreignKey: 'contentItemId',
-            as: 'appContentModel'
+            onDelete: 'CASCADE',
           })
         }
       }

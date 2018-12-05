@@ -22,6 +22,12 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
     isVisible: DataTypes.BOOLEAN,
   }, {
       classMethods: {
+        associate: function(models) {
+          ContentCategoryModel.hasMany(models.CategoryModel, {
+            foreignKey: 'categoryId',
+            as: 'appCategories'
+          })
+        }
       }
     })
   return ContentCategoryModel

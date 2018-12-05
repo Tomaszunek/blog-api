@@ -21,6 +21,12 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
     type: DataTypes.STRING
   }, {
       classMethods: {
+        associate: function(models) {
+          CategoryModel.belongsTo(models.ContentCategoryModel, {
+            foreignKey: 'categoryId',
+            as: 'appCategories'
+          })
+        }
       }
     })
   return CategoryModel

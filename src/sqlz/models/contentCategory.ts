@@ -3,6 +3,7 @@ import * as Sequelize from 'sequelize'
 export interface ContentCategoryModelAttributes {
   id?: number
   contentItemId: number,
+  productItemId: number,
   categoryId: number,
   isVisible: boolean
 }
@@ -10,6 +11,7 @@ export interface ContentCategoryModelAttributes {
 export interface ContentCategoryModelInstance extends Sequelize.Instance<ContentCategoryModelAttributes> {
   id: number
   contentItemId: number,
+  productItemId: number,
   categoryId: number,
   createdAt: Date
   updatedAt: Date
@@ -18,25 +20,25 @@ export interface ContentCategoryModelInstance extends Sequelize.Instance<Content
 }
 
 export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
-  const ContentCategoryModel = sequelize.define('ContentCategoryModel', {
+  const AppContentCategory = sequelize.define('AppContentCategory', {
     isVisible: DataTypes.BOOLEAN,
   }, {
       classMethods: {
         associate: function(models) {
-          ContentCategoryModel.hasMany(models.CategoryModel, {
+          AppContentCategory.hasMany(models.CategoryModel, {
             foreignKey: 'categoryId',
             as: 'appCategories'
           })
-          ContentCategoryModel.belongsTo(models.AppContent, {
+          AppContentCategory.belongsTo(models.AppContent, {
             foreignKey: 'contentItemId',
             as: 'contentCategories'
           })
-          ContentCategoryModel.belongsTo(models.AppProduct, {
+          AppContentCategory.belongsTo(models.AppProduct, {
             foreignKey: 'productItemId',
             as: 'productCategories'
           })
         }
       }
     })
-  return ContentCategoryModel
+  return AppContentCategory
 }

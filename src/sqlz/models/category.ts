@@ -22,7 +22,7 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
   }, {
       classMethods: {
         associate: function(models) {
-          CategoryModel.belongsTo(models.ContentCategoryModel, {
+          CategoryModel.belongsTo(models.AppContentCategory, {
             foreignKey: 'categoryId',
             as: 'appCategories'
           })

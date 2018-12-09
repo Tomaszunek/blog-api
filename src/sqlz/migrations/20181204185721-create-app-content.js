@@ -1,6 +1,6 @@
 module.exports = {
   up: (queryInterface, Sequelize) =>
-    queryInterface.createTable('AppContent', {
+    queryInterface.createTable('appcontents', {
       id: {
         allowNull: false,
         type: Sequelize.UUID,

@@ -34,21 +34,17 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
   }, {
       classMethods: {
         associate: function(models) {
-          AppContent.hasMany(models.ContentImage, {
-            foreignKey: 'contentItemId',
-            as: 'appContentImage'
+          AppContent.hasMany(models.AppContentCategory, {
+            foreignKey: 'contentItemId'
           })
-          AppContent.hasMany(models.ContentModels, {
-            foreignKey: 'contentItemId',
-            as: 'appContentModels'
+          AppContent.hasMany(models.AppContentImage, {
+            foreignKey: 'contentItemId'
           })
-          AppContent.belongsTo(models.AppContentCategories, {
-            foreignKey: 'contentItemId',
-            as: 'appContentCategories'
+          AppContent.hasMany(models.AppContentModel, {
+            foreignKey: 'contentItemId'
           })
-          AppContent.belongsTo(models.AppMainPageContent, {
-            foreignKey: 'contentItemId',
-            as: 'appMainPageContent'
+          AppContent.hasMany(models.AppMainPageContent, {
+            foreignKey: 'contentItemId'
           })
         }
       }

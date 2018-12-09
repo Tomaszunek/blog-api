@@ -1,12 +1,12 @@
 import * as Sequelize from 'sequelize'
 
-export interface CategoryModelAttributes {
+export interface AppCategoryAttributes {
   id?: number
   name: string,
   type: CategoryTypes
 }
 
-export interface CategoryModelInstance extends Sequelize.Instance<CategoryModelAttributes> {
+export interface AppCategoryInstance extends Sequelize.Instance<AppCategoryAttributes> {
   id: number
   createdAt: Date
   updatedAt: Date
@@ -16,20 +16,19 @@ export interface CategoryModelInstance extends Sequelize.Instance<CategoryModelA
 }
 
 export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
-  const CategoryModel = sequelize.define('CategoryModel', {
+  const AppCategory = sequelize.define('AppCategory', {
     name: DataTypes.STRING,
     type: DataTypes.STRING
   }, {
       classMethods: {
         associate: function(models) {
-          CategoryModel.belongsTo(models.ContentCategoryModel, {
-            foreignKey: 'categoryId',
-            as: 'appCategories'
+          AppCategory.hasMany(models.AppContentCategory, {
+            foreignKey: 'categoryId'
           })
         }
       }
     })
-  return CategoryModel
+  return AppCategory
 }
 
 export enum CategoryTypes {

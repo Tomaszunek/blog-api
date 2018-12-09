@@ -7,10 +7,28 @@ const config = require('../config/config.json')
 // Import model specification from its own definition file.
 import { LanguageInstance, LanguageAttributes } from './language'
 import { AppUserInstance, AppUserAttributes } from './appuser'
+import { AppContentInstance, AppContentAttributes } from './content'
+import { AppCategoryInstance, AppCategoryAttributes } from './category'
+import { ContentCategoryModelInstance, ContentCategoryModelAttributes } from './contentCategory'
+import { AppContentImageInstance, AppContentImageAttributes } from './contentImage'
+import { AppContentModelInstance, AppContentModelAttributes } from './contentModel'
+import { AppMainPageContentInstance, AppMainPageContentAttributes } from './mainpageContent'
+import { AppProducttInstance, AppProductAttributes } from './product'
+import { AppProductImageInstance, AppProductImageAttributes } from './productImage'
+import { AppProductModelInstance, AppProductModelAttributes } from './productModel'
 
 interface DbConnection {
   Language: Sequelize.Model<LanguageInstance, LanguageAttributes>,
-  AppUser: Sequelize.Model<AppUserInstance, AppUserAttributes>
+  AppUser: Sequelize.Model<AppUserInstance, AppUserAttributes>,
+  AppContent: Sequelize.Model<AppContentInstance, AppContentAttributes>,
+  AppCategory: Sequelize.Model<AppCategoryInstance, AppCategoryAttributes>,
+  AppContentCategory: Sequelize.Model<ContentCategoryModelInstance, ContentCategoryModelAttributes>,
+  AppContentImage: Sequelize.Model<AppContentImageInstance, AppContentImageAttributes>,
+  AppContentModel: Sequelize.Model<AppContentModelInstance, AppContentModelAttributes>,
+  AppMainPageContent: Sequelize.Model<AppMainPageContentInstance, AppMainPageContentAttributes>,
+  AppProduct: Sequelize.Model<AppProducttInstance, AppProductAttributes>,
+  AppProductImage: Sequelize.Model<AppProductImageInstance, AppProductImageAttributes>,
+  AppProductModel: Sequelize.Model<AppProductModelInstance, AppProductModelAttributes>
 }
 let db = {}
 

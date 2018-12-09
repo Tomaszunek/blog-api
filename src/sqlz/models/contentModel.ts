@@ -2,14 +2,14 @@ import * as Sequelize from 'sequelize'
 
 export interface AppContentModelAttributes {
   id?: number
-  idContentItem: number,
+  contentItemId: number,
   model: string,
   order: number
 }
 
 export interface AppContentModelInstance extends Sequelize.Instance<AppContentModelAttributes> {
   id: number
-  idContentItem: number,
+  contentItemId: number,
   createdAt: Date
   updatedAt: Date
 
@@ -24,9 +24,9 @@ export default function defineUser(sequelize: Sequelize.Sequelize, DataTypes) {
   }, {
       classMethods: {
         associate: function(models) {
-          AppContentModel.belongsTo(models.ContentImage, {
+          AppContentModel.belongsTo(models.AppContent, {
             foreignKey: 'contentItemId',
-            as: 'appContentModel'
+            onDelete: 'CASCADE',
           })
         }
       }

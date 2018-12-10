@@ -15,8 +15,8 @@ export function searchContent(searchParams: any): Promise<any> {
         attributes: ['type', 'name'],
         where: {
           $or: searchParams.categoryNames
-        }      
-},
+        }
+      }
       ]
     },
     { model: db.AppContentImage },
@@ -34,9 +34,8 @@ export function searchContent(searchParams: any): Promise<any> {
         attributes: ['type', 'name'],
         where: {
           $or: searchParams.categoryNames
-        }      
-},
-      ]
+        }
+      }]
     },
     { model: db.AppProductImage },
     { model: db.AppProductModel },

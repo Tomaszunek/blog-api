@@ -48,6 +48,7 @@ In models/ directory, the index.ts file define the DbConnection interface. When 
 
 ```bash
 npm start
+node_modules/.bin/webpack ./cms/app.tsx --config ./cms/webpack-config.js
 ```
 
 Your web server is now exposed on http://localhost:3000

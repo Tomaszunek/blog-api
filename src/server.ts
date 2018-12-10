@@ -3,6 +3,7 @@ import * as winston from 'winston'
 import * as boom from 'express-boom'
 import * as morgan from 'morgan'
 import * as cors from 'cors'
+import * as path from 'path'
 import * as expressValidator from 'express-validator'
 import { json, urlencoded } from 'body-parser'
 import { Express } from 'express'
@@ -20,6 +21,14 @@ export class Server {
 
   constructor() {
     this.app = express()
+
+    // const staticPath = path.join(__dirname, '/')
+    // this.app.use(express.static(staticPath))
+
+    this.app.use(express.static(path.join(__dirname, '../dist')))
+    this.app.get('/cms', function(req, res) {
+      res.sendFile(path.join(__dirname, '../dist', 'index.html'))
+    });
 
     // Express middleware
     this.app.use(cors({

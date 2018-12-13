@@ -21,17 +21,12 @@
     "start:prod": "cross-env NODE_ENV=production gulp watch",
     "run:test": "cross-env NODE_ENV=test gulp test",
     "tslint": "gulp tslint",
-    "precommit": "lint-staged",
     "prettify": "tsfmt -r --baseDir ./src",
     "sqlz:migrate": "./node_modules/.bin/sequelize db:migrate",
     "sqlz:undo": "./node_modules/.bin/sequelize db:migrate:undo",
-    "sqlz:new": "./node_modules/.bin/sequelize migration:create"
-  },
-  "lint-staged": {
-    "src/**/*.ts": [
-      "prettify",
-      "git add"
-    ]
+    "sqlz:new": "./node_modules/.bin/sequelize migration:create",
+    "webpack:start": "webpack-dev-server --entry cms --output-path dist --development",
+    "webpack:build": ""
   },
   "dependencies": {
     "autoprefixer": "^9.4.2",
@@ -65,6 +60,7 @@
     "@types/morgan": "~1.7.32",
     "@types/react": "^16.7.13",
     "@types/react-dom": "^16.0.11",
+    "@types/react-router": "^4.4.2",
     "@types/sequelize": "~3.4.40",
     "@types/winston": "~2.2.0",
     "chai": "~3.5.0",
@@ -90,6 +86,7 @@
     "node-sass": "^4.11.0",
     "postcss-flexbugs-fixes": "^4.1.0",
     "postcss-loader": "^3.0.0",
+    "react-router": "^4.3.1",
     "remap-istanbul": "~0.8.4",
     "rimraf": "~2.5.4",
     "run-sequence": "~1.2.2",
@@ -100,7 +97,8 @@
     "tslint": "~4.5.1",
     "typedoc": "~0.5.7",
     "typescript": "^3.2.2",
-    "typescript-formatter": "^5.1.1"
+    "typescript-formatter": "^5.2.0",
+    "webpack-dev-server": "^3.1.10"
   },
   "engines": {
     "node": ">=4.0.0"

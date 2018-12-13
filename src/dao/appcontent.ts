@@ -21,4 +21,15 @@ export function findByType(type: string): Promise<any> {
     })
 }
 
+export function findSingleBySlug(slug: string): Promise<any> {
+  return db.AppContent
+    .findOne({
+      where: { slug: slug },
+      include: [{ model: db.AppContentCategory, include: [{ model: db.AppCategory }] },
+      { model: db.AppContentImage },
+      { model: db.AppContentModel },
+      ]
+    })
+}
+
 

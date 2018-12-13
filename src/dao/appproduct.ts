@@ -10,4 +10,16 @@ export function findAll(): Promise<any> {
     })
 }
 
+export function findSingleBySlug(slug: string): Promise<any> {
+  return db.AppProduct
+    .findOne({
+      where: { slug: slug },
+      include: [{ model: db.AppContentCategory, include: [{ model: db.AppCategory }] },
+      { model: db.AppProductImage },
+      { model: db.AppProductModel },
+      ]
+    })
+}
+
+
 

@@ -10,10 +10,10 @@ export function findAll(): Promise<any> {
     })
 }
 
-export function findByType(type: string): Promise<any> {
+export function findByType(articleType: string): Promise<any> {
   return db.AppContent
     .findAll({
-      where: { type: type },
+      where: { articleType: articleType },
       include: [{ model: db.AppContentCategory, include: [{ model: db.AppCategory }] },
       { model: db.AppContentImage },
       { model: db.AppContentModel },
